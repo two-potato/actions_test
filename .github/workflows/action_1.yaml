@@ -1,4 +1,4 @@
-name: Deploy and Restart Server
+name: Deploy and Restart Server_1
 
 on:
   push:
