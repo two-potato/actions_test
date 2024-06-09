@@ -16,7 +16,7 @@ jobs:
     - name: Set up SSH
       uses: webfactory/ssh-agent@v0.5.3
       with:
-        ssh-private-key:0bStxGTez7tcTGL4kWghqZXVXFhz8214m1FLnlD/3MI
+        ssh-private-key:'SHA256:0bStxGTez7tcTGL4kWghqZXVXFhz8214m1FLnlD/3MI'
 
     - name: Copy files to server
       run: |
