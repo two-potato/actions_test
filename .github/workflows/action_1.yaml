@@ -33,8 +33,7 @@ jobs:
 
     - name: Restart server
       run: |
-        ssh root@${{ secrets.SERVER_IP }} << 'EOF'
+        ssh root@${{ secrets.SERVER_IP }}
         cd /home/ubuntu/action_test
         docker-compose down
         docker-compose up --build -d
-        EOF
