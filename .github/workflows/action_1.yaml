@@ -1,4 +1,4 @@
-name: First Action
+name: Deploy and Restart Server
 
 on:
   push:
@@ -6,26 +6,26 @@ on:
       - main  # или другая ветка, в которой хотите запускать действие
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key:0bStxGTez7tcTGL4kWghqZXVXFhz8214m1FLnlD/3MI
 
-    # - name: Log in to Docker Hub
-    #   uses: docker/login-action@v2
-    #   with:
-    #     username: ${{ secrets.DOCKER_USERNAME }}
-    #     password: ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: Set up Docker Compose
+    - name: Copy files to server
       run: |
-        sudo apt-get update
-        sudo apt-get install docker-compose
+        scp -r ./* root@95.163.236.116:/home/ubuntu/action_test
 
-    - name: Run Docker Compose
-      run: docker-compose up --build -d
+    - name: Restart server
+      run: |
+        ssh root@95.163.236.116 << 'EOF'
+        cd /home/ubuntu/action_test
+        docker-compose down
+        docker-compose up --build -d
+        EOF
