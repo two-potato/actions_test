@@ -19,15 +19,15 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Test SSH connection
-      run: ssh -o StrictHostKeyChecking=no username@${{ secrets.SERVER_IP }} 'echo "SSH connection successful"'
+      run: ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_IP }} 'echo "SSH connection successful"'
 
-    - name: Copy files to server
-      run: scp -o StrictHostKeyChecking=no -r ./* username@${{ secrets.SERVER_IP }}:/path/to/your/app
+    # - name: Copy files to server
+    #   run: scp -o StrictHostKeyChecking=no -r ./* username@${{ secrets.SERVER_IP }}:/path/to/your/app
 
-    - name: Restart server
-      run: |
-        ssh -o StrictHostKeyChecking=no username@${{ secrets.SERVER_IP }} << 'EOF'
-        cd /path/to/your/app
-        docker-compose down
-        docker-compose up --build -d
-        EOF
+    # - name: Restart server
+    #   run: |
+    #     ssh -o StrictHostKeyChecking=no username@${{ secrets.SERVER_IP }} << 'EOF'
+    #     cd /path/to/your/app
+    #     docker-compose down
+    #     docker-compose up --build -d
+    #     EOF
