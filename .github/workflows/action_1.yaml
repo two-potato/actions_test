@@ -3,7 +3,7 @@ name: Deploy and Restart Server
 on:
   push:
     branches:
-      - main  # или другая ветка, в которой хотите запускать действие
+      - main
 
 jobs:
   deploy:
