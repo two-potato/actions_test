@@ -13,10 +13,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/po+jLa/iX3Td5+c/nv+q2fw7YnLSjyPV9TsWq7gEwTY3P2I31FU7+LGfRVNgjiMp8mfawoFyYzD+yzHDcSB9cqzMWNnyFw60ImlnroGM1j0CpFP0It9rNWChZ2nrMH2hVrn0I4BSci+V17BzwVnIYYc9FpIkobIwLKSkXUKpC7KOcKzhvqemCujhQjQdZbrsX2kC9fVP/B0xyyIo4sp0W5U4JlOeYC7DQOjdIwumIf1Uf/576jaLd3bY4Fj/loPe+7+ItKxm3+dPwhsJR6o7ri9ypLa1ffM3la96JLINbvBOWyyruB5s1IUAmECBfs5NMYXTGLSExgbUNi1I/kMICkE6Nfko5yeHeoRV49DvVhdbaPYNS28H1d8wv/IznQYFQjQlj5/rQXRJN86/DDJYyqaYQ1TprhBUm5h1ZNOwGBdZSu0hnqUNALp9sw2RIRZCQoQa2cCoIxKXwzmaP6xPibhJBQGVebAmeOhN84XJUhFcvfm50h/azGspOx4SBo0= root@95-163-236-116.cloudvps.regruhosting.ru
+    # - name: Set up SSH
+    #   uses: webfactory/ssh-agent@v0.5.3
+    #   with:
+    #     ssh-private-key:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/po+jLa/iX3Td5+c/nv+q2fw7YnLSjyPV9TsWq7gEwTY3P2I31FU7+LGfRVNgjiMp8mfawoFyYzD+yzHDcSB9cqzMWNnyFw60ImlnroGM1j0CpFP0It9rNWChZ2nrMH2hVrn0I4BSci+V17BzwVnIYYc9FpIkobIwLKSkXUKpC7KOcKzhvqemCujhQjQdZbrsX2kC9fVP/B0xyyIo4sp0W5U4JlOeYC7DQOjdIwumIf1Uf/576jaLd3bY4Fj/loPe+7+ItKxm3+dPwhsJR6o7ri9ypLa1ffM3la96JLINbvBOWyyruB5s1IUAmECBfs5NMYXTGLSExgbUNi1I/kMICkE6Nfko5yeHeoRV49DvVhdbaPYNS28H1d8wv/IznQYFQjQlj5/rQXRJN86/DDJYyqaYQ1TprhBUm5h1ZNOwGBdZSu0hnqUNALp9sw2RIRZCQoQa2cCoIxKXwzmaP6xPibhJBQGVebAmeOhN84XJUhFcvfm50h/azGspOx4SBo0= root@95-163-236-116.cloudvps.regruhosting.ru
 
     - name: Copy files to server
       run: |
