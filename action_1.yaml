@@ -1,0 +1,31 @@
+name: Deploy and Restart Server
+
+on:
+  push:
+    branches:
+      - main  # или другая ветка, в которой хотите запускать действие
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key:0bStxGTez7tcTGL4kWghqZXVXFhz8214m1FLnlD/3MI
+
+    - name: Copy files to server
+      run: |
+        scp -r ./* root@95.163.236.116:/home/ubuntu/action_test
+
+    - name: Restart server
+      run: |
+        ssh root@95.163.236.116 << 'EOF'
+        cd /home/ubuntu/action_test
+        docker-compose down
+        docker-compose up --build -d
+        EOF
