@@ -27,7 +27,7 @@ jobs:
 
     - name: Restart server
       run: |
-        ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_IP }} << 'EOF'
+        ssh root@${{ secrets.SERVER_IP }} << 'EOF'
         cd /path/to/your/app
         docker-compose down
         docker-compose up --build -d
