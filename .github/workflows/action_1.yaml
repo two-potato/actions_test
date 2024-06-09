@@ -19,7 +19,7 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Test SSH connection
-      run: ssh -o StrictHostKeyChecking=no root@${{ secrets.SERVER_IP }} 'echo "SSH connection successful"'
+      run: ssh -o StrictHostKeyChecking=no root@$95.163.236.116 'echo "SSH connection successful"'
 
     # - name: Copy files to server
     #   run: scp -o StrictHostKeyChecking=no -r ./* username@${{ secrets.SERVER_IP }}:/path/to/your/app
